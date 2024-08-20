@@ -57,6 +57,9 @@
     vim
     dunst
     libnotify
+
+    nvtopPackages.full
+    htop
   ];
 
   fonts.packages = with pkgs; [
@@ -75,7 +78,6 @@
   # };
 
   # Audio
-  sound.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -115,5 +117,19 @@
     open = false;
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.beta;
+  };
+
+  hardware.nvidia.prime = {
+    # 1. Sync mode
+    # sync.enable = true;
+    # 2. Offload mode
+    offload = {
+      enable = true;
+      enableOffloadCmd = true;
+    };
+
+    # Make sure to use the correct Bus ID values for your system!
+    amdgpuBusId = "PCI:30:0:0";
+    nvidiaBusId = "PCI:10:0:0";
   };
 }
