@@ -13,12 +13,14 @@
   };
 
   time.timeZone = "Asia/Novosibirsk";
-  services.openssh.enable = true;
+  services = {
+    openssh.enable = true;
+    openssh.settings.PermitRootLogin = "yes";
+  };
   environment.systemPackages = with pkgs; [ curl git vim sbctl ];
 
   users.users = {
     root = {
-      openssh.authorizedKeys.keys = [ ]; # for nixos-anywhere needs
       initialHashedPassword =
         "$y$j9T$3RQ1ut7aoQme6wRqksDAb.$Ed8Gnohw7LO3PKPfrFtpg63.F/0LhULHYHDhpmh1C/2";
     };
