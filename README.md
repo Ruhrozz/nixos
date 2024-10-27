@@ -10,6 +10,6 @@ It is colaborated with:
 ```bash
 nix run github:nix-community/nixos-anywhere -- \
     --generate-hardware-config nixos-generate-config ./hardware-configuration.nix \
-    --flake .#generic \
+    --flake .#nixos \
     root@<IP_ADDRESS>
 ```
