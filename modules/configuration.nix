@@ -12,11 +12,14 @@
     efiInstallAsRemovable = true;
   };
 
+  networking.networkmanager.enable = true;
   time.timeZone = "Asia/Novosibirsk";
-  services = {
-    openssh.enable = true;
-    openssh.settings.PermitRootLogin = "yes";
+  services.openssh = {
+    enable = true;
+    settings.PermitRootLogin = "yes";
   };
+
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [ curl git vim sbctl ];
 
   users.users = {
@@ -29,6 +32,11 @@
       isNormalUser = true;
     };
   };
+
+  fonts.packages = with pkgs; [
+    noto-fonts
+    corefonts
+  ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   system.stateVersion = "24.05";

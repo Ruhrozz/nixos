@@ -9,7 +9,7 @@ It is colaborated with:
 
 ```bash
 nix run github:nix-community/nixos-anywhere -- \
-    --generate-hardware-config nixos-generate-config ./hardware-configuration.nix \
+    --generate-hardware-config nixos-generate-config ./modules/hardware-configuration.nix \
     --flake .#nixos \
     root@<IP_ADDRESS>
 ```

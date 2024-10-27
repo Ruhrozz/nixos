@@ -18,8 +18,8 @@
           grub_theme.nixosModules.default
           home-manager.nixosModules.nixos
 
-          ./configuration.nix
-          ./hardware-configuration.nix
+          ./modules/configuration.nix
+          ./modules/hardware-configuration.nix
         ];
       };
     };
