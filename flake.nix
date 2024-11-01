@@ -1,22 +1,31 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    grub_theme.url = "github:Machillka/GameDevClub-GRUB-Theme";
-    home-manager.url = "github:Ruhrozz/home-manager/nixos";
+    vscode-server.url = "github:nix-community/nixos-vscode-server";
+    catppuccin.url = "github:catppuccin/nix";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs =
-    { nixpkgs, disko, grub_theme, home-manager, ... }: {
+  outputs = { nixpkgs, disko, vscode-server, catppuccin, ... }:
+    let
+      system = "x86_64-linux";
+      user = "ruhrozz";
+    in {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        inherit system;
+
+        specialArgs.user = user;
+
         modules = [
+          catppuccin.nixosModules.catppuccin
           disko.nixosModules.disko
-          grub_theme.nixosModules.default
-          home-manager.nixosModules.nixos
+
+          vscode-server.nixosModules.default
+          { services.vscode-server.enable = true; }
 
           ./modules/configuration.nix
           ./modules/hardware-configuration.nix
