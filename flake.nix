@@ -12,6 +12,7 @@
 
           modules = [
             inputs.disko.nixosModules.disko
+            inputs.lanzaboote.nixosModules.lanzaboote
             inputs.stylix.nixosModules.stylix
 
             (./. + "/profiles" + ("/" + settings.profile)
@@ -76,6 +77,12 @@
     # Declarative disk partitioning
     disko = {
       url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Secure boot on NixOS
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v0.4.1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

@@ -43,6 +43,7 @@
 
   # List of globally installed packages.
   environment.systemPackages = with pkgs; [
+    sbctl # secure boot debug
     pciutils
     usbutils
     wget
