@@ -1,3 +1,0 @@
-{
-    # NoOp. Using btop theme.
-}
