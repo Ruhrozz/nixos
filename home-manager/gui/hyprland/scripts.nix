@@ -1,34 +1,21 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   home.packages = with pkgs; [
-    playerctl
+    jq
     (pkgs.writeScriptBin "hyprworkspace" ''
-      #!/bin/sh
-      # from https://github.com/taylor85345/hyprland-dotfiles/blob/master/hypr/scripts/workspace
-      monitors=/tmp/hypr/monitors_temp
-      hyprctl monitors > $monitors
+      #!/usr/bin/env bash
+      # close special workspace on focused monitor if one is present
 
-      if [[ -z $1 ]]; then
-        workspace=$(grep -B 5 "focused: no" "$monitors" | awk 'NR==1 {print $3}')
-      else
-        workspace=$1
+      active=$(hyprctl -j monitors | jq --raw-output '.[] | select(.focused==true).specialWorkspace.name | split(":") | if length > 1 then .[1] else "" end')
+
+      if [[ ''${#active} -gt 0 ]]; then
+        hyprctl dispatch togglespecialworkspace "$active"
       fi
 
-      activemonitor=$(grep -B 11 "focused: yes" "$monitors" | awk 'NR==1 {print $2}')
-      passivemonitor=$(grep  -B 6 "($workspace)" "$monitors" | awk 'NR==1 {print $2}')
-      #activews=$(grep -A 2 "$activemonitor" "$monitors" | awk 'NR==3 {print $1}' RS='(' FS=')')
-      passivews=$(grep -A 6 "Monitor $passivemonitor" "$monitors" | awk 'NR==4 {print $1}' RS='(' FS=')')
-
-      if [[ $workspace -eq $passivews ]] && [[ $activemonitor != "$passivemonitor" ]]; then
-       hyprctl dispatch workspace "$workspace" && hyprctl dispatch swapactiveworkspaces "$activemonitor" "$passivemonitor" && hyprctl dispatch workspace "$workspace"
-        echo $activemonitor $passivemonitor
-      else
-        hyprctl dispatch moveworkspacetomonitor "$workspace $activemonitor" && hyprctl dispatch workspace "$workspace"
-      fi
-
-      exit 0
+      hyprctl dispatch workspace "$1"
     '')
+    playerctl
     (pkgs.writeScriptBin "hyprmusic" ''
       #!/bin/sh
       set -euo pipefail
@@ -65,15 +52,6 @@
         --dest="org.mpris.MediaPlayer2.$(playerctl -l | head -n 1)" \
         /org/mpris/MediaPlayer2                                     \
         "org.mpris.MediaPlayer2.Player.$MEMBER"
-    '')
-    (pkgs.writeScriptBin "hyprtheme" ''
-      #!/bin/sh
-      home-manager switch --flake .
-      pkill ags
-      ags 1>/dev/null 2>&1 &
-      disown ags
-      hyprctl reload
-      pkill -USR2 cava
     '')
   ];
 }
