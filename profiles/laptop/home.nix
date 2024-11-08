@@ -22,7 +22,7 @@
 
   # Add packages from the pkgs dir
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [ uv mpv firefox ripgrep ];
+  home.packages = with pkgs; [ uv firefox ripgrep ];
 
   xdg = {
     enable = true;
