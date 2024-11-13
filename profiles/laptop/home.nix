@@ -9,10 +9,10 @@
   # Hypland GUI settings
   stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland.settings = {
-    # monitor = [ ", preferred, auto, 1" ]; # any
-    monitor = [ "eDP-1, 1920x1200, auto, 1" ]; # native resolution for laptop
-    # monitor = [ "eDP-1, 1680x1050, auto, 1" ]; # another resolution for laptop
-    # monitor = [ "eDP-1, 1440x900, auto, 1" ]; # another resolution for laptop
+    # monitor = [ ", preferred, auto, 1" ];
+    # monitor = [ "eDP-1, 1920x1200, auto, 1" ];
+    monitor = [ "eDP-1, 1680x1050, auto, 1" ];
+    # monitor = [ "eDP-1, 1440x900, auto, 1" ];
   };
 
   home = {
@@ -22,7 +22,6 @@
 
   # Add packages from the pkgs dir
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [ uv firefox ripgrep ];
 
   xdg = {
     enable = true;

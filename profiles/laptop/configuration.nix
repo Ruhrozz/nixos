@@ -39,7 +39,9 @@
     extraGroups = [ "wheel" "networkmanager" ];
   };
 
-  # A lot of mpris packages require it
+  environment.systemPackages = with pkgs; [ osu-lazer ];
+
+  # A lot of mpris packages require it.
   services.gvfs.enable = true;
 
   # Laptop-specific

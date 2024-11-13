@@ -9,8 +9,8 @@
   # Hypland GUI settings
   stylix.targets.hyprland.enable = false;
   wayland.windowManager.hyprland.settings = {
-    # monitor = [ ", preferred, auto, 1" ]; # any
-    monitor = [ "HDMI-A-2, 1920x1080, auto, 1" ]; # desktop
+    # monitor = [ ", preferred, auto, 1" ];
+    monitor = [ "HDMI-A-2, 1920x1080, auto, 1" ];
   };
 
   home = {
@@ -20,7 +20,6 @@
 
   # Add packages from the pkgs dir
   nixpkgs.config.allowUnfree = true;
-  home.packages = with pkgs; [ uv firefox ripgrep ];
 
   xdg = {
     enable = true;
