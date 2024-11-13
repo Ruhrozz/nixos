@@ -8,6 +8,8 @@
     vim # reserve editor
     eog # image viewer
     vlc # video viewer
+    firefox # browser
+    gnome-calculator # calculator
 
     # Some apps
     neovide # GUI for NeoVIM

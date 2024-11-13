@@ -34,12 +34,14 @@
       # Application shortcuts.
       "$mod, Return, exec, ${settings.term}"
       "$mod, B, exec, ${settings.browser}"
+      "$mod, C, exec, gnome-calculator"
       "$mod, D, exec, nautilus"
       "$mod, T, exec, telegram-desktop"
       "$mod, O, exec, obsidian"
       "$mod, N, exec, neovide"
       "$mod CTRL, S, exec, __NV_PRIME_RENDER_OFFLOAD=1 __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0 __GLX_VENDOR_LIBRARY_NAME=nvidia __VK_LAYER_NV_optimus=NVIDIA_only steam"
       "$mod CTRL, O, exec, osu\!"
+      "$mod CTRL, N, exec, notify-send $(hyprctl activewindow | grep class)"
 
       # Special workspace
       "$mod, S, togglespecialworkspace"
