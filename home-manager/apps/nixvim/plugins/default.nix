@@ -10,6 +10,7 @@
     ./treesitter.nix
     ./autopairs.nix
     ./comment.nix
+    ./colorizer.nix
   ];
 
   programs.nixvim.plugins.web-devicons.enable = true;
