@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, ... }:
 
 {
   programs.zsh = {
@@ -21,6 +21,7 @@
       fuck = "THEFUCK_EXCLUDE_RULES=fix_file fuck";
       cat = "bat";
       ls = "eza";
+      clear = "clear -x";
 
       # tmux
       ta = "tmux attach";
@@ -41,18 +42,18 @@
       path = "${config.xdg.dataHome}/zsh/history";
     };
 
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-      {
-        name = "powerlevel10k-config";
-        src = ./p10k-config;
-        file = "p10k.zsh";
-      }
-    ];
+    # plugins = [
+    #   {
+    #     name = "powerlevel10k";
+    #     src = pkgs.zsh-powerlevel10k;
+    #     file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #   }
+    #   {
+    #     name = "powerlevel10k-config";
+    #     src = ./p10k-config;
+    #     file = "p10k.zsh";
+    #   }
+    # ];
 
     oh-my-zsh = {
       enable = true;
