@@ -7,7 +7,6 @@
       format = lib.concatStringsSep "" [
         "[](fg:overlay0)"
         "$os"
-        "$username"
         "[](fg:overlay0 bg:surface2)"
         "$git_branch"
         "$git_status"
