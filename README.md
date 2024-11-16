@@ -57,8 +57,6 @@ nix run github:nix-community/nixos-anywhere -- \
 
 > Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
 
-- Clone repo and update `hardware-configuration.nix` or use `scp` to copy repo to remote host
-
 ## Remote (home-manager apps without gui)
 
 You only need to install home-manager.
