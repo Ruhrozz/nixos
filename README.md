@@ -8,7 +8,7 @@ Some "nix stuff" repository:
 
 # Desktop version installation
 
-## With bootable USB flash drive
+### With bootable USB flash drive
 
 - Update `./settings.nix`
 - Boot with NixOS USB drive
@@ -33,7 +33,7 @@ sudo nixos-generate-config --show-hardware-config > ./profiles/desktop/hardware-
 sudo nixos-install --flake .#nixos
 ```
 
-## With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
+### With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
 
 - Update `./settings.nix`
 - Run nixos-anywhere to install system via ssh:
@@ -49,8 +49,6 @@ nix run github:nix-community/nixos-anywhere -- \
 
 You only need to install home-manager.
 Moreover, remote installation settings are set up by default.
-
-So there is fast home-manager developing:
 
 ```bash
 git clone https://github.com/Ruhrozz/nix.git ~/.dotfiles
