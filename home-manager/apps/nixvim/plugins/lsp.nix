@@ -110,6 +110,7 @@
             yamlfmt.enable = true; # yaml
             codespell.enable = true; # english
             shfmt.enable = true; # bash
+            mdformat.enable = true; # markdown
           };
         };
       };
