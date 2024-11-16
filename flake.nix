@@ -6,17 +6,34 @@
       settings = import (./. + "/settings.nix") { inherit pkgs; };
       pkgs = import nixpkgs { system = settings.system; };
     in {
-      # NixOS configuration entrypoint.
+      # NixOS + Home-Manager configuration entrypoint.
       nixosConfigurations = {
         ${settings.hostname} = nixpkgs.lib.nixosSystem {
 
           modules = [
+            # Import NixOS and Disko configs here
             inputs.disko.nixosModules.disko
-            inputs.stylix.nixosModules.stylix
-
             (./. + "/profiles" + ("/" + settings.profile)
               + "/configuration.nix")
-
+            # Import Home-Manager and Stylix configs here
+            home-manager.nixosModules.home-manager
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+                users.${settings.username}.imports = [
+                  inputs.nixvim.homeManagerModules.nixvim
+                  inputs.stylix.homeManagerModules.stylix
+                  inputs.ags.homeManagerModules.default
+                  (./profiles + ("/" + settings.profile) + "/home.nix")
+                ];
+                extraSpecialArgs = {
+                  inherit inputs;
+                  inherit settings;
+                };
+              };
+            }
+            # In case that someone will want to connect to this host with VSCode
             inputs.vscode-server.nixosModules.default
             { services.vscode-server.enable = true; }
           ];
@@ -58,7 +75,7 @@
     # For customizing system
     stylix.url = "github:danth/stylix";
 
-    # For connection to this machine with VS-Code
+    # For connection to this machine with VSCode
     vscode-server.url = "github:nix-community/nixos-vscode-server";
 
     # For handling dotfiles in ~/.config/

@@ -1,68 +1,57 @@
 # ❄ Nix Stuff ❄
 
 Some "nix stuff" repository:
+
 - Disko
 - NixOS
 - Home-manager
+- Stylix
+- AGS
 
-# Installation guide
+# Desktop version installation
 
-First of all you need to clone repository
+### With bootable USB flash drive
 
-```bash
-git clone https://github.com/Ruhrozz/nix.git ~/.dotfiles
-```
+- Update `./settings.nix`
+- Boot with NixOS USB drive
+- Make disk partitioning with [disko](https://github.com/nix-community/disko?ysclid=m37md4ni64813417409):
 
-After that modify `./settings.nix` according to your preferences.
-
-Further guide depend on your chosen profile.
-
-## NixOS (i.e. desktop/laptop)
-
-### With bootable USB flash drive 
-
-1. Boot with NixOS USB drive
-2. Make disk partitioning with [disko](https://github.com/nix-community/disko?ysclid=m37md4ni64813417409):
 ```bash
 sudo nix run github:nix-community/disko/latest -- \
   --mode disko ./profiles/desktop/disk-config.nix
 ```
-3. Update `hardware-configuration.nix`:
+
+- Update `hardware-configuration.nix`:
+
 ```bash
 sudo nixos-generate-config --show-hardware-config > ./profiles/desktop/hardware-configuration.nix
 ```
+
 > Disko already defines filesystems, so you need to remove redundant defines
-4. Install NixOS itself:
+
+- Install NixOS itself:
+
 ```bash
 sudo nixos-install --flake .#nixos
-```
-5. Enter fresh installed NixOS, switch to another tty, login as user and update home-manager:
-```bash
-nix --extra-experimental-features "nix-command flakes" run github:nix-community/home-manager -- \
-  switch --flake ~/.dotfiles --extra-experimental-features 'nix-command flakes'
 ```
 
 ### With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
 
-1. Run nixos-anywhere to install system via ssh:
+- Update `./settings.nix`
+- Run nixos-anywhere to install system via ssh:
+
 ```bash
 nix run github:nix-community/nixos-anywhere -- \
   --generate-hardware-config nixos-generate-config ./profiles/desktop/hardware-configuration.nix --flake .#nixos root@<ip address>
 ```
-> Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
-2. Clone repo and update `hardware-configuration.nix` or use `scp` to copy repo to remote host
-3. Enter fresh installed NixOS via ssh, login as user and update home-manager:
-```bash
-nix --extra-experimental-features "nix-command flakes" run github:nix-community/home-manager -- \
-  switch --flake ~/.dotfiles --extra-experimental-features 'nix-command flakes'
-```
 
-## Remote (home-manager apps without gui)
+> Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
+
+# Remote version installation
 
 You only need to install home-manager.
 Moreover, remote installation settings are set up by default.
 
-So there is fast home-manager developing:
 ```bash
 git clone https://github.com/Ruhrozz/nix.git ~/.dotfiles
 nix --extra-experimental-features "nix-command flakes" run github:nix-community/home-manager -- \
