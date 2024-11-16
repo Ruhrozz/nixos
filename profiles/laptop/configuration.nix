@@ -44,6 +44,17 @@
   # A lot of mpris packages require it.
   services.gvfs.enable = true;
 
+  # Login automatically because you need password for LUKS
+  services.greetd = {
+    enable = true;
+    settings = {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "${settings.username}";
+      };
+    };
+  };
+
   # Laptop-specific
   services.upower.enable = true;
   powerManagement = {
