@@ -9,6 +9,7 @@
     ./ssh.nix
     ./tmux.nix
     ./packages.nix
+    ./zoxide.nix
   ];
 
   programs.thefuck.enable = true;
