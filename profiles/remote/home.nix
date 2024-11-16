@@ -14,15 +14,10 @@
     sessionVariables = { EDITOR = settings.editor; };
     stateVersion = "23.05";
 
-    packages = with pkgs; [
-      dust # `du -h -d 1` replacement
-      duf # `df -h` replacement
-      uv # a lot of fast python stuff such as pip venv and uv tool
-      pre-commit # can be pip installed, tired from pip installing =)
-      shellcheck # bashls nixvim plugin dependency
-      ripgrep # telescope nixvim plugin dependency
-      glibcLocales # fixing locale problems on Ubuntu
-    ];
+    packages = with pkgs;
+      [
+        glibcLocales # fixing locale problems on Ubuntu
+      ];
 
     file.".bash_login".text = ''
       export LOCALE_ARCHIVE="${pkgs.glibcLocales}/lib/locale/locale-archive";
