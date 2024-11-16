@@ -10,8 +10,6 @@
     ./tmux.nix
     ./packages.nix
     ./zoxide.nix
+    ./thefuck.nix
   ];
-
-  programs.thefuck.enable = true;
-  programs.bat.enable = true;
 }
