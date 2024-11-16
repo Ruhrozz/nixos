@@ -15,7 +15,6 @@
       selection.save_to_clipboard = false;
 
       window = {
-        opacity = 0.8;
         class.general = "Alacritty";
         class.instance = "Alacritty";
         padding.x = 10;

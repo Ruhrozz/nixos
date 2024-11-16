@@ -82,7 +82,7 @@
       # Print a new line at the start of the prompt
       add_newline = true;
 
-      palette = settings.themeDetails.themeName;
+      palette = "catppuccin-mocha";
 
       # A copy-paste from here https://starship.rs/presets/nerd-font
       # (but not all of that)

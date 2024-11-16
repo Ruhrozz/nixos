@@ -18,8 +18,5 @@ in {
 
     targets.nixvim.enable =
       lib.mkIf (settings.themeDetails.themeName != null) false;
-
-    targets.btop.enable =
-      lib.mkIf (settings.themeDetails.btopTheme != null) false;
   };
 }
