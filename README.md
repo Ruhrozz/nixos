@@ -63,11 +63,6 @@ Moreover, remote installation settings are set up by default.
 So there is fast home-manager developing:
 ```bash
 git clone https://github.com/Ruhrozz/nix.git ~/.dotfiles
-# to be able to use flakes (optional)
-mkdir -p ~/.config/nix/ && echo "experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
-# in case you have messages with locale problems (optional)
-echo "export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive" >> ~/.bashrc
-# run home-manager without explicitly installing it
 nix --experimental-features "nix-command flakes" run github:nix-community/home-manager -- switch --flake ~/.dotfiles
 ```
 

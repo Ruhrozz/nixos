@@ -29,5 +29,8 @@
       export SHELL=`which zsh`
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
     '';
+    file.".config/nix/nix.conf".text = ''
+      experimental-features = nix-command flakes
+    '';
   };
 }
