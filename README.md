@@ -22,15 +22,15 @@ Further guide depend on your chosen profile.
 
 ### With bootable USB flash drive
 
-1. Boot with NixOS USB drive
-1. Make disk partitioning with [disko](https://github.com/nix-community/disko?ysclid=m37md4ni64813417409):
+- Boot with NixOS USB drive
+- Make disk partitioning with [disko](https://github.com/nix-community/disko?ysclid=m37md4ni64813417409):
 
 ```bash
 sudo nix run github:nix-community/disko/latest -- \
   --mode disko ./profiles/desktop/disk-config.nix
 ```
 
-1. Update `hardware-configuration.nix`:
+- Update `hardware-configuration.nix`:
 
 ```bash
 sudo nixos-generate-config --show-hardware-config > ./profiles/desktop/hardware-configuration.nix
@@ -38,7 +38,7 @@ sudo nixos-generate-config --show-hardware-config > ./profiles/desktop/hardware-
 
 > Disko already defines filesystems, so you need to remove redundant defines
 
-1. Install NixOS itself:
+- Install NixOS itself:
 
 ```bash
 sudo nixos-install --flake .#nixos
@@ -46,7 +46,7 @@ sudo nixos-install --flake .#nixos
 
 ### With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
 
-1. Run nixos-anywhere to install system via ssh:
+- Run nixos-anywhere to install system via ssh:
 
 ```bash
 nix run github:nix-community/nixos-anywhere -- \
@@ -55,7 +55,7 @@ nix run github:nix-community/nixos-anywhere -- \
 
 > Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
 
-1. Clone repo and update `hardware-configuration.nix` or use `scp` to copy repo to remote host
+- Clone repo and update `hardware-configuration.nix` or use `scp` to copy repo to remote host
 
 ## Remote (home-manager apps without gui)
 
