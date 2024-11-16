@@ -45,7 +45,7 @@ nix run github:nix-community/nixos-anywhere -- \
 
 > Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
 
-# Remote version installation (home-manager apps without gui)
+# Remote version installation
 
 You only need to install home-manager.
 Moreover, remote installation settings are set up by default.
