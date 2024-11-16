@@ -5,6 +5,8 @@ Some "nix stuff" repository:
 - Disko
 - NixOS
 - Home-manager
+- Stylix
+- AGS
 
 # Desktop version installation
 
