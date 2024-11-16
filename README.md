@@ -6,7 +6,7 @@ Some "nix stuff" repository:
 - NixOS
 - Home-manager
 
-# Desktop version installation (desktop, laptop profiles)
+# Desktop version installation
 
 ## With bootable USB flash drive
 
