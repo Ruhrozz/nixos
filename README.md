@@ -6,21 +6,9 @@ Some "nix stuff" repository:
 - NixOS
 - Home-manager
 
-# Installation guide
+# Desktop version installation (desktop, laptop profiles)
 
-First of all you need to clone repository
-
-```bash
-git clone https://github.com/Ruhrozz/nix.git ~/.dotfiles
-```
-
-After that modify `./settings.nix` according to your preferences.
-
-Further guide depend on your chosen profile.
-
-## NixOS (i.e. desktop/laptop)
-
-### With bootable USB flash drive
+## With bootable USB flash drive
 
 - Update `./settings.nix`
 - Boot with NixOS USB drive
@@ -45,7 +33,7 @@ sudo nixos-generate-config --show-hardware-config > ./profiles/desktop/hardware-
 sudo nixos-install --flake .#nixos
 ```
 
-### With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
+## With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
 
 - Update `./settings.nix`
 - Run nixos-anywhere to install system via ssh:
@@ -57,7 +45,7 @@ nix run github:nix-community/nixos-anywhere -- \
 
 > Default password for root connection is `ASDzxc123`, do not forget to update pass with passwd.
 
-## Remote (home-manager apps without gui)
+# Remote version installation (home-manager apps without gui)
 
 You only need to install home-manager.
 Moreover, remote installation settings are set up by default.
