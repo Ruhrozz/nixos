@@ -21,9 +21,11 @@
       pre-commit # can be pip installed, tired from pip installing =)
       shellcheck # bashls nixvim plugin dependency
       ripgrep # telescope nixvim plugin dependency
+      glibcLocales # fixing locale problems on Ubuntu
     ];
 
     file.".bash_login".text = ''
+      export LOCALE_ARCHIVE="${pkgs.glibcLocales}/lib/locale/locale-archive";
       export SHELL=`which zsh`
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
     '';
