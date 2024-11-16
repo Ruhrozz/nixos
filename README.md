@@ -22,6 +22,7 @@ Further guide depend on your chosen profile.
 
 ### With bootable USB flash drive
 
+- Update `./settings.nix`
 - Boot with NixOS USB drive
 - Make disk partitioning with [disko](https://github.com/nix-community/disko?ysclid=m37md4ni64813417409):
 
@@ -46,6 +47,7 @@ sudo nixos-install --flake .#nixos
 
 ### With [nixos-anywhere](https://github.com/nix-community/nixos-anywhere?ysclid=m37mp47i7c377992155)
 
+- Update `./settings.nix`
 - Run nixos-anywhere to install system via ssh:
 
 ```bash
