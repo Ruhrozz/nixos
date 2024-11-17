@@ -7,6 +7,7 @@
       format = lib.concatStringsSep "" [
         "[](fg:overlay0)"
         "$os"
+        "$hostname"
         "[](fg:overlay0 bg:surface2)"
         "$git_branch"
         "$git_status"
@@ -28,6 +29,11 @@
       os = {
         style = "bg:overlay0 fg:base";
         disabled = false;
+      };
+
+      hostname = {
+        format = "[$hostname]($style)";
+        style = "bg:overlay0 fg:base";
       };
 
       directory = {
