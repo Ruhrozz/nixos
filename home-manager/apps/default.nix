@@ -11,5 +11,6 @@
     ./packages.nix
     ./zoxide.nix
     ./thefuck.nix
+    ./bat.nix
   ];
 }
