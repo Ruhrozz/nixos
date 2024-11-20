@@ -21,6 +21,11 @@
             enable = true;
             autostart = true;
           }; # bash
+
+          dockerls = {
+            enable = true;
+            autostart = true;
+          }; # dockerfile
         };
         keymaps.lspBuf = {
           K = "hover";
