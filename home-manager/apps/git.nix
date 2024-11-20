@@ -4,6 +4,7 @@
     lfs.enable = true;
     userName = settings.name;
     userEmail = settings.email;
-    diff-so-fancy.enable = true;
+    delta.enable = true;
+    delta.options.side-by-side = true;
   };
 }
