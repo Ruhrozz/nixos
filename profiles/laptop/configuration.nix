@@ -20,7 +20,14 @@
 
   # Netorking
   networking.hostName = settings.hostname;
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    # https://github.com/NixOS/nixpkgs/blob/nixos-24.05/nixos/modules/services/networking/networkmanager.nix#L261-L289
+    wifi = {
+      # https://github.com/kachick/dotfiles/issues/663#issuecomment-2262189168
+      powersave = false;
+    };
+  };
 
   # Timezone
   time.timeZone = settings.timezone;
