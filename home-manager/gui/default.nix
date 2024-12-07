@@ -1,1 +1,4 @@
-{ ... }: { imports = [ ./hyprland ./mpd ./alacritty.nix ./easyeffects.nix ]; }
+{ ... }: {
+  imports =
+    [ ./hyprland ./mpd ./alacritty.nix ./easyeffects.nix ./neovide.nix ];
+}

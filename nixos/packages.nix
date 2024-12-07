@@ -12,7 +12,6 @@
     gnome-calculator # calculator
 
     # Some apps
-    neovide # GUI for NeoVIM
     telegram-desktop # contacts
     obsidian # all my life is here
 
