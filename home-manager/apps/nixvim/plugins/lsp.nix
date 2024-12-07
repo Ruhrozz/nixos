@@ -17,6 +17,11 @@
             ]; # It's probably a bug and is not supposed to be here.
           }; # nix
 
+          ts_ls = {
+            enable = true;
+            autostart = true;
+          }; # typescript
+
           bashls = {
             enable = true;
             autostart = true;
