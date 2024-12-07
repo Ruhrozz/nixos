@@ -67,10 +67,10 @@
 
   inputs = {
     # Required package
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
 
     # For widgets like status bar at the top
-    ags.url = "github:Aylur/ags";
+    ags.url = "github:Aylur/ags/v1";
 
     # For customizing system
     stylix.url = "github:danth/stylix";
@@ -80,7 +80,7 @@
 
     # For handling dotfiles in ~/.config/
     home-manager = {
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

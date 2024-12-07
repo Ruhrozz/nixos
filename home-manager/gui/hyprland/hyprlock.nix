@@ -1,4 +1,4 @@
-{ config, settings, ... }:
+{ lib, config, settings, ... }:
 
 {
   programs.hyprlock.enable = true;
@@ -10,7 +10,7 @@
     };
 
     background = {
-      path = "${settings.dotfilesDir}/assets/wallpapers/fox-girl.jpg";
+      path = lib.mkForce "${settings.dotfilesDir}/assets/wallpapers/fox-girl.jpg";
       blur_passes = 3;
       blur_size = 3;
       brightness = 1.0;
@@ -29,7 +29,6 @@
       fade_on_empty = true;
       placeholder_text = "<i>Password...</i>";
       hide_input = false;
-      check_color = "rgb(40, 200, 250)";
       position = "0, 50";
       halign = "center";
       valign = "bottom";
