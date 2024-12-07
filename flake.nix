@@ -24,7 +24,6 @@
                 users.${settings.username}.imports = [
                   inputs.nixvim.homeManagerModules.nixvim
                   inputs.stylix.homeManagerModules.stylix
-                  inputs.ags.homeManagerModules.default
                   (./profiles + ("/" + settings.profile) + "/home.nix")
                 ];
                 extraSpecialArgs = {
@@ -54,7 +53,6 @@
             (./. + "/profiles" + ("/" + settings.profile) + "/home.nix")
             inputs.stylix.homeManagerModules.stylix
             inputs.nixvim.homeManagerModules.nixvim
-            inputs.ags.homeManagerModules.default
           ];
 
           extraSpecialArgs = {

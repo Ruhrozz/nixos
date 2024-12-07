@@ -12,6 +12,7 @@
   brightnessctl,
   accountsservice,
   slurp,
+  wf-recorder,
   wl-clipboard,
   wayshot,
   swappy,
@@ -20,20 +21,23 @@
   networkmanager,
   gtk3,
   which,
-  ags,
 }: let
   name = "asztal";
 
+  ags = inputs.ags.packages.${system}.default.override {
+    extraPackages = [accountsservice];
+  };
+
   dependencies = [
-    cage
-    accountsservice
     which
     dart-sass
     fd
     fzf
     brightnessctl
     swww
+    # inputs.matugen.packages.${system}.default
     slurp
+    wf-recorder
     wl-clipboard
     wayshot
     swappy
