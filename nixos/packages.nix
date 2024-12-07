@@ -15,6 +15,10 @@
     neovide # GUI for NeoVIM
     telegram-desktop # contacts
     obsidian # all my life is here
+
+    # For ags
+    brightnessctl
+    swww
   ];
 
   fonts.packages = with pkgs; [
@@ -26,4 +30,15 @@
     noto-fonts-color-emoji
     settings.fontPkg
   ];
+
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    config = {
+      common.default = [ "gtk" ];
+      hyprland.default = [ "hyprland" ];
+    };
+
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
 }

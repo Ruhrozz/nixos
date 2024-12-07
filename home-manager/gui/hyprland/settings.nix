@@ -2,7 +2,15 @@
 let details = settings.themeDetails;
 in {
   wayland.windowManager.hyprland.settings = {
-    exec-once = [ "swww-daemon &" "ags &" ];
+    exec-once = [
+      "swww-daemon &"
+      "ags &"
+      "[workspace 1 silent] alacritty"
+      "[workspace 2 silent] firefox"
+      "[workspace 3 silent] nautilus"
+      "[workspace special silent] telegram-desktop"
+      "[workspace special silent] obsidian"
+    ];
 
     cursor = { no_hardware_cursors = true; };
 
