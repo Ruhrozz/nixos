@@ -5,7 +5,6 @@ in {
     exec-once = [
       "swww-daemon &"
       "ags &"
-      "[workspace 1 silent] alacritty"
       "[workspace 2 silent] firefox"
       "[workspace 3 silent] nautilus"
       "[workspace special silent] telegram-desktop"
