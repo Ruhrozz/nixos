@@ -12,6 +12,8 @@
     ./comment.nix
     ./colorizer.nix
     ./bufferline.nix
+    ./neogen.nix
+    ./luasnip.nix
   ];
 
   programs.nixvim.plugins.web-devicons.enable = true;
