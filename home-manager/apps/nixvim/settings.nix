@@ -3,7 +3,10 @@
     viAlias = true;
     vimAlias = true;
 
-    globals.mapleader = " ";
+    globals = {
+      mapleader = " ";
+      transparent_enabled = true; # transparency plugin
+    };
 
     opts = {
       tabstop = 4;
