@@ -23,7 +23,7 @@ in {
     };
 
     decoration = {
-      dim_special = 0.5;
+      dim_special = 0.4;
       rounding = details.rounding;
       blur = {
         enabled = true;
@@ -31,7 +31,7 @@ in {
         brightness = 1.0;
         contrast = 1.0;
         noise = 2.0e-2;
-        passes = 3;
+        passes = 2;
         size = 10;
       };
 
