@@ -9,13 +9,22 @@
       tabstop = 4;
       shiftwidth = 4;
       softtabstop = 4;
-      colorcolumn = "120";
+      colorcolumn = "121";
       smarttab = true;
       smartindent = true;
       expandtab = true;
       number = true;
       mouse = "a";
       cursorline = true;
+      scrolloff = 5;
+      clipboard = "unnamed";
+      undofile = true;
+      ttyfast = true;
+      autoread = true;
+      encoding = "utf-8";
+      wrapscan = true;
+      splitbelow = true;
+      splitright = true;
     };
 
     files = {
