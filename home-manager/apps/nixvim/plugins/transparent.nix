@@ -1,30 +1,9 @@
 {
   programs.nixvim.plugins.transparent = {
     enable = true;
-    settings.groups = [
-      "Normal"
-      "NormalNC"
-      "Comment"
-      "Constant"
-      "Special"
-      "Identifier"
-      "Statement"
-      "PreProc"
-      "Type"
-      "Underlined"
-      "Todo"
-      "String"
-      "Function"
-      "Conditional"
-      "Repeat"
-      "Operator"
-      "Structure"
-      "LineNr"
-      "NonText"
-      "SignColumn"
-      "CursorLine"
-      "CursorLineNr"
-      "EndOfBuffer"
-    ];
+    settings = {
+      extra_groups = [ "all" "TroubleNormal" "TroubleNormalNC" "TroubleCount" "TroubleFsCount"];
+      exclude_groups = [ "StatusLine" "CursorLine" ];
+    };
   };
 }
